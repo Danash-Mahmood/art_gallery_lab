@@ -73,8 +73,15 @@ public class GalleryTest {
 
     }
 
- 
 
+    @Test
+
+    public void checkArtworkTransfer(){
+
+        gallery.purchaseArtwork("Sunflowers", customers);
+        assertThat(customers.getCustomersartcollection().get(0)).isEqualTo(artwork);
+
+    }
 
 
 }

@@ -10,6 +10,7 @@ public class Gallery {
         this.name = name;
         this.till = 0;
         this.stock = new ArrayList<>();
+
     }
 
     public String getName () {
@@ -53,7 +54,8 @@ public class Gallery {
             if (artwork.getTitle().equals(artworkName)){
                 this.till += artwork.getPrice();
                 customer.setMoney(customer.getMoney() - artwork.getPrice());
-
+                customer.customersartcollection.add(artwork);
+                stock.remove(artwork);
             }
         }
 
@@ -73,10 +75,6 @@ public class Gallery {
 
         return sum;
     }
-
-
-
-
 
 
 }
