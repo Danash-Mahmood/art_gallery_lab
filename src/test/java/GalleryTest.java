@@ -11,16 +11,22 @@ public class GalleryTest {
     Artwork artwork;
     Gallery gallery;
     Artist artist;
-    ArrayList<Artwork> stock;
+    Artwork artwork2;
+    Artist artist2;
+
 
     @BeforeEach
 
     public void setUp(){
         customers = new Customers("John", 100);
         artist = new Artist( "van gough");
-        artwork = new Artwork("Sunflowers",50, artist);
-//        stock.add(artwork);
-        gallery = new Gallery("Herbert",0, stock);
+        artwork = new Artwork("Sunflowers",80, artist);
+        artist2 = new Artist("Vermeer");
+        artwork2 = new Artwork("Girl with pearl",3,artist2);
+
+        gallery = new Gallery("Herbert");
+        gallery.addToStock(artwork);
+        gallery.addToStock(artwork2);
 
 
     }
@@ -44,6 +50,26 @@ public class GalleryTest {
     public void checkSetTill(){
          gallery.setTill(5);
         assertThat(gallery.getTill()).isEqualTo(5);
+
+    }
+
+    @Test
+
+    public void checkPurchaseArtwork(){
+
+        gallery.purchaseArtwork("Sunflowers",customers);
+        assertThat(customers.getMoney()).isEqualTo(20);
+        assertThat(gallery.getTill()).isEqualTo(80);
+
+    }
+
+    @Test
+
+    public void checkStockTake(){
+
+
+
+        assertThat(gallery.stockTake()).isEqualTo(83);
 
     }
 

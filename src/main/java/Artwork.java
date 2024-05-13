@@ -1,7 +1,7 @@
 public class Artwork {
 
     private String title;
-    private Artist artist; // Why don't we need to do Artist artist = new Artist();
+    private Artist artist; //new Artist("Van Gough"); // Why don't we need to do Artist artist = new Artist();
     private int price;
 
     public Artwork(String inputTitle,int inputPrice, Artist inputArtist){

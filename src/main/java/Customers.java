@@ -3,6 +3,7 @@ public class Customers {
     private String name;
     private int money;
 
+
     public Customers(String name, int money){
 
         this.name = name;
